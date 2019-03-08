@@ -1,3 +1,9 @@
+/**
+ * Function executes sort by choice of array
+ * @param {Array} arr - array to be sorted
+ * @param {Number} direction - direction of sort. 1 - ascending, -1 - descending
+ * @returns {Array} - sorted array
+ */
 module.exports = function sortByChoice (arr, direction = 1) {
   const sortedArray = [];
   const targetLength = arr.length;
@@ -16,6 +22,14 @@ module.exports = function sortByChoice (arr, direction = 1) {
 
   return sortedArray;
 
+  /**
+   * Function gets extreme (max or min) item from array
+   * skipping items, defined in skip array
+   * @param {Array} arr - array to search through
+   * @param {Number} direction - number defining search max (1) ot min (-1)
+   * @param {Array} skip - array, defining which items should be scipped
+   * @returns extreme item
+   */
   function getLastExtreme(arr, direction = 1, skip) {
     let extreme, extremeIndex;
 
