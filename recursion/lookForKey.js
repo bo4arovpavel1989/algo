@@ -30,16 +30,16 @@ module.exports.loopSearch = function (chest) {
 /**
  * Function takes chest - array of items: boxes, some staff and maybe key
  * and search through all to find the key`
- * @param {Array} box - array containing items
+ * @param {Array} chest - array containing items
  * @returns {Boolean} representing if is any key
  */
-module.exports.recursionSearch = function recursionSearch (box) {
-  if (box.length === 0) return false;
+module.exports.recursionSearch = function recursionSearch (chest) {
+  if (chest.length === 0) return false;
 
-  const item =  box.pop();
+  const item =  chest.pop();
 
   if (item.contains.name === 'key') return true;
-  else if (item.contains.name === 'box')  box.push(item.contains);
+  else if (item.contains.name === 'box')  chest.push(item.contains);
 
-  return recursionSearch(box);
+  return recursionSearch(chest);
 }
