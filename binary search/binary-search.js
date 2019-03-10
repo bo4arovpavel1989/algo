@@ -14,7 +14,7 @@ const binarySearch = function (arr, item) {
     if (arr[guess] === item) {
       result = guess;
       break;
-    } else if (arr[guess] < item){
+    } else if (arr[guess] < item) {
       min = guess;
       guess = Math.floor((min + max) / 2);
     } else {

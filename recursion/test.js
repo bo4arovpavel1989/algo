@@ -1,5 +1,5 @@
-const chai = require('chai'),
-	{expect} = chai;
+const chai = require('chai');
+const { expect } = chai;
 const { loopSearch, recursionSearch } = require('./lookForKey');
 
 

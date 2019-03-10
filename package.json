@@ -1,0 +1,23 @@
+{
+  "name": "algo",
+  "version": "1.0.0",
+  "description": "algorythms from the book \"Grokking algorythms\"",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha */test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bo4arovpavel1989/algo.git"
+  },
+  "author": "bo4arovpavel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bo4arovpavel1989/algo/issues"
+  },
+  "homepage": "https://github.com/bo4arovpavel1989/algo#readme"
+}

@@ -36,10 +36,10 @@ module.exports.loopSearch = function (chest) {
 module.exports.recursionSearch = function recursionSearch (chest) {
   if (chest.length === 0) return false;
 
-  const item =  chest.pop();
+  const item = chest.pop();
 
   if (item.contains.name === 'key') return true;
-  else if (item.contains.name === 'box')  chest.push(item.contains);
+  else if (item.contains.name === 'box') chest.push(item.contains);
 
   return recursionSearch(chest);
 }

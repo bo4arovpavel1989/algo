@@ -10,11 +10,11 @@ module.exports = function sortByChoice (arr, direction = 1) {
   const skipArray = new Array(targetLength);
 
   if (arr == null) return null;
-  if (typeof(direction) !== 'number') throw new TypeError('Direction must be a number!');
+  if (typeof (direction) !== 'number') throw new TypeError('Direction must be a number!');
 
   direction = direction >= 0 ? 1 : -1;
 
-  while(sortedArray.length !== targetLength) {
+  while (sortedArray.length !== targetLength) {
     const extreme = getLastExtreme(arr, direction, skipArray);
 
     sortedArray.push(extreme);
@@ -30,7 +30,7 @@ module.exports = function sortByChoice (arr, direction = 1) {
    * @param {Array} skip - array, defining which items should be scipped
    * @returns extreme item
    */
-  function getLastExtreme(arr, direction = 1, skip) {
+  function getLastExtreme (arr, direction = 1, skip) {
     let extreme, extremeIndex;
 
     arr.forEach((item, i) => {
