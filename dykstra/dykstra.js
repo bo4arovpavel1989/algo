@@ -69,10 +69,8 @@ class Dykstra {
 
     for (let node in this.labels) {
       if (this.visited.includes(node)) continue;
-      if (minValue === undefined) {
-        minValue = this.labels[node];
-        minNode = node;
-      } else if (this.labels[node] < minValue) {
+
+      if (minValue === undefined || this.labels[node] < minValue) {
         minValue = this.labels[node];
         minNode = node;
       }
