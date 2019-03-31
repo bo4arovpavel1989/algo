@@ -114,7 +114,7 @@ class Dykstra {
       let nextCurrentNodes = [];
 
       // Nodes that are part of possible shortest way
-      currentNodes.forEach((currentNode, i) => {
+      currentNodes.forEach(currentNode => {
         // If one of possible ways is over we pass it
         if (currentNode === this.start) return;
 
