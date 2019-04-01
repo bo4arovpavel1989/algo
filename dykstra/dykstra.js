@@ -128,18 +128,16 @@ class Dykstra {
         // It checks if parent node is part of possible way.
         // it doesnt duplicate if several nodes have mutual parent
         parents.forEach(parent => {
-          if (possibleWayPoints.includes(parent)) return false;
           if (this.labels[parent] + this.graph[parent][currentNode] === left) {
               possibleWayPoints.push(parent);
+
+              if (!nextCurrentNodes.includes(parent)) {
+                nextCurrentNodes.push(parent)
+              }
           }
         });
 
         this.addPossibleWayPoints(currentNode, possibleWayPoints);
-
-        // If several ways merge in one point, we use it only once in next iteration
-        possibleWayPoints.forEach(point => {
-          if (!nextCurrentNodes.includes(point)) nextCurrentNodes.push(point)
-        })
       });
 
       currentNodes = nextCurrentNodes;
@@ -161,6 +159,7 @@ class Dykstra {
   addPossibleWayPoints (currentNode, possibleWayPoints) {
     let newPaths = [];
 
+    // Add possibleWayPoints only to paths that include currentNode
     possibleWayPoints.forEach(point => {
       this.paths.forEach(path => {
         if (path[path.length - 1] === currentNode) newPaths.push([...path, point])
