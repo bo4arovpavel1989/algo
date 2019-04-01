@@ -1,5 +1,5 @@
 /**
-  * Class defining dykstra finw way algo.
+  * Class defining dykstra find way algo.
   */
 class Dykstra {
   /**
@@ -31,6 +31,7 @@ class Dykstra {
     const start = this.start;
 
     this.labels = {};
+    this.parents = {};
     this.labels[start] = 0;
     this.way = 0;
     this.visited = [];
@@ -52,7 +53,9 @@ class Dykstra {
     let children = this.graph[currentNode];
 
     for (let childNode in children) {
-      this.refreshLabel(currentNode, childNode)
+      this.parents[childNode] = this.parents[childNode] || [];
+      this.parents[childNode].push(currentNode);
+      this.refreshLabel(currentNode, childNode);
     }
 
     this.visited.push(currentNode);
@@ -142,11 +145,12 @@ class Dykstra {
     }
 
     let rightPaths = [];
-
+    console.log(this.paths);
     this.paths.forEach(path => {
       rightPaths.push(path.reverse())
     })
 
+    console.log({ way: shortestWay, paths: rightPaths })
     return { way: shortestWay, paths: rightPaths };
   }
 
@@ -173,16 +177,10 @@ class Dykstra {
   /**
     * Method get parent nodes
     * @param {String} currentNode
-    *@returns {Array} - parents
+    * @returns {Array} - parents
     */
   getParents (currentNode) {
-    let parents = [];
-
-    for (let node in this.graph) {
-      if (currentNode in this.graph[node]) parents.push(node)
-    }
-
-    return parents;
+    return this.parents[currentNode];
   }
 }
 
