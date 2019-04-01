@@ -2,7 +2,6 @@ const chai = require('chai');
 const { expect } = chai;
 const Dykstra = require('./dykstra');
 
-
 describe('Dykstra', () => {
   const graph = {
     a: { b: 10, c1: 20, c2: 20, k: 20 },

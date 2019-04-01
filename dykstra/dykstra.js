@@ -125,10 +125,12 @@ class Dykstra {
         let left = this.labels[currentNode];
         let possibleWayPoints = [];
 
-        // It checks if parent node is part of possible way
+        // It checks if parent node is part of possible way.
+        // it doesnt duplicate if several nodes have mutual parent
         parents.forEach(parent => {
+          if (possibleWayPoints.includes(parent)) return false;
           if (this.labels[parent] + this.graph[parent][currentNode] === left) {
-            possibleWayPoints.push(parent);
+              possibleWayPoints.push(parent);
           }
         });
 
@@ -144,13 +146,8 @@ class Dykstra {
       goon = !currentNodes.every(node => node === this.start)
     }
 
-    let rightPaths = [];
-    console.log(this.paths);
-    this.paths.forEach(path => {
-      rightPaths.push(path.reverse())
-    })
+    let rightPaths = this.paths.map(path => path.reverse())
 
-    console.log({ way: shortestWay, paths: rightPaths })
     return { way: shortestWay, paths: rightPaths };
   }
 
@@ -167,7 +164,7 @@ class Dykstra {
     possibleWayPoints.forEach(point => {
       this.paths.forEach(path => {
         if (path[path.length - 1] === currentNode) newPaths.push([...path, point])
-        else newPaths.push(path)
+        else if (!newPaths.includes(path)) newPaths.push(path)
       })
     })
 
