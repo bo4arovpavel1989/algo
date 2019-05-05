@@ -13,11 +13,35 @@ describe('binarySearch', () => {
   })
 
   it('should find item in array', () => {
+    const arr = [1,2,3,4,5,6,7,8,9,10,11];
+    const item = 1;
+    const result = binarySearch(arr, item);
+
+    expect(result).to.eql(0);
+  })
+
+  it('should find item in array', () => {
+    const arr = [1,2,3,4,5,6,7,8,9,10,11];
+    const item = 11;
+    const result = binarySearch(arr, item);
+
+    expect(result).to.eql(10);
+  })
+
+  it('should find item in array', () => {
     const arr = [1,2];
     const item = 2;
     const result = binarySearch(arr, item);
 
     expect(result).to.eql(1);
+  })
+
+  it('should find item in array', () => {
+    const arr = [1,2];
+    const item = 1;
+    const result = binarySearch(arr, item);
+
+    expect(result).to.eql(0);
   })
 
   it('should return -1', () => {
