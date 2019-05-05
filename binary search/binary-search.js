@@ -10,18 +10,18 @@ const binarySearch = function (arr, item) {
   let guess = Math.floor((min + max) / 2)
   let result = -1;
 
-  while (guess !== min && min < max) {
-    if (arr[guess] === item) {
-      result = guess;
-      break;
-    } else if (arr[guess] < item) {
-      min = guess;
-      guess = Math.floor((min + max) / 2);
-    } else {
-      max = guess;
-      guess = Math.floor((min + max) / 2);
-    }
-  }
+  do {
+      if (arr[guess] === item) {
+        result = guess;
+        break;
+      } else if (arr[guess] < item) {
+        min = guess + 1;
+        guess = Math.floor((min + max) / 2);
+      } else {
+        max = guess - 1;
+        guess = Math.floor((min + max) / 2);
+      }
+    } while (min <= max)
 
   return result;
 }
